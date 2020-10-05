@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'eviteapi.apps.EviteapiConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
