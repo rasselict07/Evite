@@ -1,0 +1,46 @@
+{% extends 'event/base.html' %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-1 col-xs-1 col-sm-1"></div>
+            <div class="col-md-10 col-xs-10 col-sm-10">
+                <h3 class="round3" style="text-align:center;">Events List</h3>
+            </div>
+            <div class="col-md-1 col-xs-1 col-sm-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-10 col-xs-10 col-sm-10"></div>
+            <div class="col-md-2 col-xs-1 col-sm-1">
+                <br/>
+                <a href="#">
+                    <button type="button" class="btn btn-success">
+                        <span class="glyphicon"> My Events</span>
+                    </button>
+                </a>
+            </div>
+        </div>
+        <br/>
+        {% for event in event_list %}
+            <div class="row">
+                <div class="col-md-1 col-xs-1 col-sm-1"></div>
+                <div class="col-md-7 col-xs-7 col-sm-7">
+                    <ul class="list-group">
+
+                        <li class="list-group-item ">
+                            {{ event.name }} ({{ event.location }} at {{ event.start_time }} - {{ event.end_time }} )
+                        </li>
+                    </ul>
+                    <br>
+                </div>
+                <div class="col-md-1 col-xs-1 col-sm-1">
+                    <a href="{% url 'event_signup' event.pk %}">
+                        <button type="button" class="btn btn-info">
+                            <span class="glyphicon">Sign-up</span>
+                        </button>
+                    </a>
+                </div>
+                <div class="col-md-1 col-xs-1 col-sm-1"></div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
