@@ -7,7 +7,10 @@
             <div class="col-md-1 col-xs-1 col-sm-1">
             </div>
             <form>
+                {% csrf_token %}
                 <div class="col-md-8 col-xs-8 col-sm-8">
+                    <input id="event_id" type="hidden" class="form-control form-check-input" name="event_id"
+                           value="{{ event.id }}">
                     <input id="email" type="email" class="form-control form-check-input" name="email"
                            placeholder="Email Address" required>
                     <p class="h2">
@@ -15,15 +18,16 @@
                     </p>
                 </div>
                 <div class="col-md-1 col-xs-1 col-sm-1">
-                    <a href="#">
-                        <button type="submit" class="btn btn-info">
+                    <a>
+                        <button type="button" class="btn btn-info" id="subscribe">
                             <span class="glyphicon">Subscribe</span>
                         </button>
                     </a>
+
                 </div>
                 <div class="col-md-1 col-xs-1 col-sm-1">
-                    <a href="#">
-                        <button type="submit" class="btn btn-danger">
+                    <a>
+                        <button type="button" class="btn btn-danger" id="eventunsubscribe">
                             <span class="glyphicon">Unsubscribe</span>
                         </button>
                     </a>
@@ -39,4 +43,33 @@
             <div class="col-md-1 col-xs-1 col-sm-1"></div>
         </div>
     </div>
+    <script type="text/javascript">
+        $("#subscribe").click(function () {
+            var form = $(this).closest("form");
+
+            $.ajax({
+                url: {% url "event_subscribe" %},
+                method: 'post',
+                data: form.serialize(),
+                dataType: 'json',
+                success: function (data) {
+                    alert(data.message);
+                }
+            });
+        });
+
+        $("#eventunsubscribe").click(function () {
+            var form = $(this).closest("form");
+
+            $.ajax({
+                url: {% url "event_unsubscribe" %},
+                method: 'post',
+                data: form.serialize(),
+                dataType: 'json',
+                success: function (data) {
+                    alert(data.message);
+                }
+            });
+        });
+    </script>
 {% endblock %}
