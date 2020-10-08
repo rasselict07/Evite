@@ -5,6 +5,7 @@ from django.views.generic import ListView, DetailView
 
 from event.models import EventUser
 from eviteapi.models import Event
+from django.core.mail import send_mail
 
 
 # home view for Event. Event are displayed in a list
@@ -37,6 +38,14 @@ def eventsubscribe(request):
         event_user = EventUser(user_id=user_id, event_id=Event.objects.get(id=event_id))
         event_user.save()
         if event_user is not None:
+            # event = Event.objects.get(id=event_id)
+            # send_mail(
+            #     'Subscribed for event: ' + str(event.name),
+            #     'Thanks for the sign up to this event',
+            #     'test@gmail.com',
+            #     [str(user_id)],
+            #     fail_silently=False,
+            # )
             data = {'message': "Event successfully subscribed."}
             return JsonResponse(data)
     except Exception as e:
