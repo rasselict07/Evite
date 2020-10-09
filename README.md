@@ -26,7 +26,7 @@ Make sure you have installed Python 3, Git and virtual environment on your devic
   |    |--- settings.py
   |    |--- urls.py
   |    |--- wsgi.py
-  |--- Evite/
+  |--- eviteapi/
   |    |--- migrations/
   |    |--- __init__.py
   |    |--- admin.py
