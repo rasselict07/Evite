@@ -1,3 +1,6 @@
+# Register your models here.
 from django.contrib import admin
 
-# Register your models here.
+from .models import EventUser
+
+admin.site.register(EventUser)
