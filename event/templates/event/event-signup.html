@@ -4,6 +4,11 @@
         <div class="row"></div>
         <br/>
         <div class="row">
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
             <div class="col-md-1 col-xs-1 col-sm-1">
             </div>
             <form>
@@ -32,13 +37,23 @@
                         </button>
                     </a>
                 </div>
+                <div class="col-md-1 col-xs-1 col-sm-1">
+                    <a href="{% url 'index' %}">
+                        <button type="button" class="btn btn-default">
+                            <span class="glyphicon">Back</span>
+                        </button>
+                    </a>
+                </div>
             </form>
             <div class="col-md-1 col-xs-1 col-sm-1"></div>
         </div>
         <div class="row">
             <div class="col-md-1 col-xs-1 col-sm-1"></div>
             <div class="col-md-10 col-xs-10 col-sm-10">
-                {{ event.name }}
+                <strong>Event ID:</strong> {{ event.event_id }}<br>
+                <strong>Event Name:</strong> {{ event.name }}<br>
+                <strong>Event Location:</strong> {{ event.location }}<br>
+                <strong>Schedule time:</strong> {{ event.start_time }} <strong>to</strong> {{ event.end_time }}<br>
             </div>
             <div class="col-md-1 col-xs-1 col-sm-1"></div>
         </div>
