@@ -72,4 +72,13 @@ For check the API execute this command in terminal
 ```curl -X GET http://127.0.0.1:8000/api/events/events/ -H "Authorization: Token 7248ce0a5682f425cbb22297e427f0d4e5626de5"```  
 For access api need authorization token. you can add token through admin panel for user, like for admin "7248ce0a5682f425cbb22297e427f0d4e5626de5"  this token is available
 
+
+You can use docker for local deployment  
+First need to install [Docker](#https://docs.docker.com/get-docker/)  
+Enter the project directory and execute this commands:  
+```docker-compose build```  
+```docker-compose up -d```  
+Browse application through this url http://localhost:8000/ or http://127.0.0.1:8000/  
+and for shutdown: ```docker-compose down -v```  
+
 Thanks!!
