@@ -24,7 +24,7 @@ SECRET_KEY = 'm8+bjk3!t+5r2-2=6vi#6_0b+aqhio5_@!st2g)-t64qpr^f^c'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 # Application definition
 
@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'eviteapi.apps.EviteapiConfig',
     'rest_framework',
     'event',
-    'widget_tweaks',
     'rest_framework.authtoken',
 ]
 
